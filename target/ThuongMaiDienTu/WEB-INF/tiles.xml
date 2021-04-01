@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Khai báo kiểu cho file tiles -->
+<!DOCTYPE tiles-definitions PUBLIC
+        "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN"
+        "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
+<tiles-definitions>
+	<!-- Khai báo tạo 1 layout dùng tiles -->
+	<definition name="baseLayoutHome"
+		template="/WEB-INF/home/layout/layout.jsp">
+		<put-attribute name="title" value="Template" />
+		<put-attribute name="header"
+			value="/WEB-INF/home/layout/header.jsp" />
+		<put-attribute name="menu"
+			value="/WEB-INF/home/layout/body.jsp" />
+		<put-attribute name="footer"
+			value="/WEB-INF/home/layout/footer.jsp" />
+	</definition>
+
+	<definition name="trangchu" extends="baseLayoutHome">
+		<put-attribute name="title"
+			value="Limupa- Thương mại điện tử" />
+		<put-attribute name="body"
+			value="/WEB-INF/home/TrangChu.jsp" />
+	</definition>
+	<!-- Khai báo tạo layout trang admin -->
+	<definition name="baseLayoutAdmin"
+		template="/WEB-INF/admin/layout/layout.jsp">
+		<put-attribute name="title" value="Template" />
+		<put-attribute name="pageLoader"
+			value="/WEB-INF/admin/layout/PageLoader.jsp" />
+		<put-attribute name="iconRightSidebar"
+			value="/WEB-INF/admin/layout/IconRightSidebar.jsp" />
+		<put-attribute name="leftSidebar"
+			value="/WEB-INF/admin/layout/LeftSidebar.jsp" />
+		<put-attribute name="rightSidebar"
+			value="/WEB-INF/admin/layout/RightSidebar.jsp" />		
+		<put-attribute name="body"
+			value="/WEB-INF/admin/layout/body.jsp" />
+	</definition>
+	
+	<definition name="sanphamadd" extends="baseLayoutAdmin">
+		<put-attribute name="title" value="Thêm mới sản phẩm" />
+		<put-attribute name="body" value="/WEB-INF/admin/SanPhamAdd.jsp" />
+	</definition>
+	<definition name="sanphamadd2" extends="baseLayoutAdmin">
+		<put-attribute name="title" value="Thêm mới sản phẩm" />
+		<put-attribute name="body" value="/WEB-INF/admin/SanPhamAdd2.jsp" />
+	</definition>
+</tiles-definitions>

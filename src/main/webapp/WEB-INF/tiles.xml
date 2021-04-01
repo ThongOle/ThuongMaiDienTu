@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Khai báo kiểu cho file tiles -->
+<!DOCTYPE tiles-definitions PUBLIC
+        "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN"
+        "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
+<tiles-definitions>
+	<!-- Khai báo tạo 1 layout dùng tiles -->
+	<definition name="baseLayoutHome"
+		template="/WEB-INF/home/layout/layout.jsp">
+		<put-attribute name="title" value="Template" />
+		<put-attribute name="header"
+			value="/WEB-INF/home/layout/header.jsp" />
+		<put-attribute name="menu"
+			value="/WEB-INF/home/layout/body.jsp" />
+		<put-attribute name="footer"
+			value="/WEB-INF/home/layout/footer.jsp" />
+	</definition>
+
+	<definition name="trangchu" extends="baseLayoutHome">
+		<put-attribute name="title"
+			value="Limupa- Thương mại điện tử" />
+		<put-attribute name="body"
+			value="/WEB-INF/home/TrangChu.jsp" />
+	</definition>
+	<definition name="giohang" extends="baseLayoutHome">
+		<put-attribute name="title"
+			value="Giỏ hàng" />
+		<put-attribute name="body"
+			value="/WEB-INF/home/GioHang.jsp" />
+	</definition>
+	<definition name="checkout" extends="baseLayoutHome">
+		<put-attribute name="title"
+			value="Thanh toán" />
+		<put-attribute name="body"
+			value="/WEB-INF/home/CheckOut.jsp" />
+	</definition>
+	<definition name="shopsanpham" extends="baseLayoutHome">
+		<put-attribute name="title"
+			value="Danh sách sản phẩm" />
+		<put-attribute name="body"
+			value="/WEB-INF/home/DanhSachSanPham.jsp" />
+	</definition>
+	<definition name="thongtincanhan" extends="baseLayoutHome">
+		<put-attribute name="title"
+			value="Thông tin cá nhân" />
+		<put-attribute name="body"
+			value="/WEB-INF/home/ThongTinCaNhan.jsp" />
+	</definition>
+	<definition name="thaydoimatkhau-kh" extends="baseLayoutHome">
+		<put-attribute name="title"
+			value="Thay đổi mật khẩu" />
+		<put-attribute name="body"
+			value="/WEB-INF/home/ThayDoiMatKhau.jsp" />
+	</definition>
+	<definition name="lichsudonhang" extends="baseLayoutHome">
+		<put-attribute name="title"
+			value="Lịch sử đơn hàng" />
+		<put-attribute name="body"
+			value="/WEB-INF/home/DanhSachDonHang.jsp" />
+	</definition>
+	<definition name="chitietdonhang" extends="baseLayoutHome">
+		<put-attribute name="title"
+			value="Chi Tiết đơn hàng" />
+		<put-attribute name="body"
+			value="/WEB-INF/home/ChiTietDonHang.jsp" />
+	</definition>
+	<definition name="chitietsanpham" extends="baseLayoutHome">
+		<put-attribute name="title"
+			value="Chi Tiết sản phẩm" />
+		<put-attribute name="body"
+			value="/WEB-INF/home/ChiTietSanPham.jsp" />
+	</definition>
+	
+	<!-- Khai báo tạo layout trang admin -->
+	<definition name="baseLayoutAdmin"
+		template="/WEB-INF/admin/layout/layout.jsp">
+		<put-attribute name="title" value="Template" />
+		<put-attribute name="pageLoader"
+			value="/WEB-INF/admin/layout/PageLoader.jsp" />
+		<put-attribute name="iconRightSidebar"
+			value="/WEB-INF/admin/layout/IconRightSidebar.jsp" />
+		<put-attribute name="leftSidebar"
+			value="/WEB-INF/admin/layout/LeftSidebar.jsp" />
+		<put-attribute name="rightSidebar"
+			value="/WEB-INF/admin/layout/RightSidebar.jsp" />		
+		<put-attribute name="body"
+			value="/WEB-INF/admin/layout/body.jsp" />
+	</definition>
+	
+	<definition name="sanphamadd" extends="baseLayoutAdmin">
+		<put-attribute name="title" value="Thêm mới sản phẩm" />
+		<put-attribute name="body" value="/WEB-INF/admin/SanPhamAdd.jsp" />
+	</definition>
+	<definition name="sanphamadd2" extends="baseLayoutAdmin">
+		<put-attribute name="title" value="Thêm mới sản phẩm" />
+		<put-attribute name="body" value="/WEB-INF/admin/SanPhamAdd2.jsp" />
+	</definition>
+	<definition name="dssanpham" extends="baseLayoutAdmin">
+		<put-attribute name="title" value="Danh sách sản phẩm" />
+		<put-attribute name="body" value="/WEB-INF/admin/DanhSachSanPham.jsp" />
+	</definition>
+	<definition name="dshangsx" extends="baseLayoutAdmin">
+		<put-attribute name="title" value="Danh sách hãng sản xuất" />
+		<put-attribute name="body" value="/WEB-INF/admin/DanhSachHangSX.jsp" />
+	</definition>
+	<definition name="dsdanhmuc" extends="baseLayoutAdmin">
+		<put-attribute name="title" value="Danh sách danh mục" />
+		<put-attribute name="body" value="/WEB-INF/admin/DanhSachDanhMuc.jsp" />
+	</definition>
+	<definition name="dsxuatxu" extends="baseLayoutAdmin">
+		<put-attribute name="title" value="Danh sách xuất xứ" />
+		<put-attribute name="body" value="/WEB-INF/admin/DanhSachXuatXu.jsp" />
+	</definition>
+	<definition name="captaikhoan" extends="baseLayoutAdmin">
+		<put-attribute name="title" value="Cấp tài khoản" />
+		<put-attribute name="body" value="/WEB-INF/admin/CapTaiKhoan.jsp" />
+	</definition>
+	<definition name="dstaikhoan" extends="baseLayoutAdmin">
+		<put-attribute name="title" value="Danh sách tài khoản" />
+		<put-attribute name="body" value="/WEB-INF/admin/DanhSachTaiKhoan.jsp" />
+	</definition>
+	<definition name="dskhachhang" extends="baseLayoutAdmin">
+		<put-attribute name="title" value="Danh sách tài khoản" />
+		<put-attribute name="body" value="/WEB-INF/admin/DSKhachHang.jsp" />
+	</definition>
+	<definition name="dsdonhang" extends="baseLayoutAdmin">
+		<put-attribute name="title" value="Danh sách đơn hàng" />
+		<put-attribute name="body" value="/WEB-INF/admin/DSDonHang.jsp" />
+	</definition>
+	<definition name="ctdonhang" extends="baseLayoutAdmin">
+		<put-attribute name="title" value="Chi Tiết đơn hàng" />
+		<put-attribute name="body" value="/WEB-INF/admin/ChiTietHoaDon.jsp" />
+	</definition>
+	<definition name="ctkhachhang" extends="baseLayoutAdmin">
+		<put-attribute name="title" value="Chi Tiết khách hàng" />
+		<put-attribute name="body" value="/WEB-INF/admin/ChiTietKhachHang.jsp" />
+	</definition>
+</tiles-definitions>
