@@ -38,7 +38,7 @@ public class QuanLyAdminController {
 		
 		return "dskhachhang";
 	}
-	
+	@Auth(permission = 1, action = Auth.Action.VIEW)
 	@RequestMapping(value = "/dsdonhang")
 	public String DsDonHang(Model model) {
 		
@@ -47,12 +47,14 @@ public class QuanLyAdminController {
 		
 		return "dsdonhang";
 	}
+	@Auth(permission = 1, action = Auth.Action.VIEW)
 	@RequestMapping(value="chitietdonhang/{id}")
 	public String chiTietDonHang(Model model, @PathVariable("id") int id) {
 		HoaDon objHDon = hdImpl.layChiTiet(id);
 		model.addAttribute("objHD", objHDon);
 		return "ctdonhang";
 	}
+	@Auth(permission = 1, action = Auth.Action.VIEW)	
 	@RequestMapping(value="chitietkhachhang/{id}")
 	public String chiTietKhachHang(Model model, @PathVariable("id") int id) {
 		KhachHang objKhachHang = khImpl.layChiTiet(id);

@@ -68,14 +68,15 @@ public class SanPhamController {
 		return "dssanpham";
 	}
 	
-	
+	@Auth(permission = 1, action = Auth.Action.VIEW)
 	@RequestMapping(value = "/sanphamadd")
 	public String themMoiSanPham(HttpServletRequest request, HttpServletResponse response, Model model) {
 		List<DanhMuc> lstDanhMuc0 = danhMucImpl.timKiemDanhMuc(0);
 		model.addAttribute("lstDanhMuc0", lstDanhMuc0);
 		return "sanphamadd";
 	}
-
+	
+	@Auth(permission = 1, action = Auth.Action.VIEW)
 	@RequestMapping(value = "/sanphamadd2")
 	public String themMoiSanPham2(@RequestParam(name = "tensanpham", required = false) String tensanpham,
 			@RequestParam(name = "dmId", required = false) String dmId,
@@ -92,6 +93,8 @@ public class SanPhamController {
 		layDanhSachLoaiSanPham();
 		return "sanphamadd2";
 	}
+	
+	@Auth(permission = 1, action = Auth.Action.VIEW)
 	@RequestMapping(value = "/sanphamadd2/{id}", method = RequestMethod.GET)
 	public String chiTietSanPham(@PathVariable("id") int id, Model model) throws JsonProcessingException {
 		
@@ -118,7 +121,8 @@ public class SanPhamController {
 		layDanhSachXX();
 		return "sanphamadd2";
 	}
-
+	
+	@Auth(permission = 1, action = Auth.Action.VIEW)
 	@RequestMapping(value = "/themmoisanpham", method = RequestMethod.POST)
 	public String themMoiCapNhat(@ModelAttribute("sanPham") SanPham objSanPham,
 			@RequestParam(value = "tennhomphanloai1", required = false) String nhom1,
@@ -198,6 +202,7 @@ public class SanPhamController {
 		return "redirect:/admin/dssanpham";
 	}
 	
+	@Auth(permission = 1, action = Auth.Action.VIEW)
 	@RequestMapping(value = "/xoasanpham/{id}", method = RequestMethod.GET)
 	public String xoaSanPham(@PathVariable("id") int id) {
 		sanPhamImpl.xoa(id);

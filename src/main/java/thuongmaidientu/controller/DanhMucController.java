@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import thuongmaidientu.model.DanhMuc;
+import thuongmaidientu.service.Auth;
 import thuongmaidientu.service.DanhMucImpl;
 
 @Controller
@@ -20,6 +21,7 @@ import thuongmaidientu.service.DanhMucImpl;
 public class DanhMucController {
 	@Autowired
 	DanhMucImpl danhMucImpl;
+	@Auth(permission = 1, action = Auth.Action.VIEW)
 	@RequestMapping(value = "/dsdanhmuc")
 	public String danhSachDanhMuc (Model model) {
 		List<DanhMuc> lstDanhMuc = danhMucImpl.layDanhSach();
@@ -32,6 +34,8 @@ public class DanhMucController {
 		model.addAttribute("danhmuc", new DanhMuc());
 		return "dsdanhmuc";
 	}
+	
+	@Auth(permission = 1, action = Auth.Action.VIEW)
 	@RequestMapping(value = "/danhmucadd")
 	public String themMoiCapNhatDanhSach (@ModelAttribute("danhmuc") DanhMuc objDanhMuc ) {
 		if (objDanhMuc.getId()!= 0) {
@@ -42,6 +46,7 @@ public class DanhMucController {
 		
 		return "redirect:/admin/dsdanhmuc";
 	}
+	@Auth(permission = 1, action = Auth.Action.VIEW)
 	@RequestMapping(value = "/xoadm/{dmid}")
 	public String XoaDanhMuc (@PathVariable("dmid") int dmid) {
 		danhMucImpl.xoa(dmid);

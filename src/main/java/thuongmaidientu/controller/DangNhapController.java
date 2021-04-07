@@ -23,6 +23,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import thuongmaidientu.model.TaiKhoan;
 import thuongmaidientu.model.VaiTro;
+import thuongmaidientu.service.Auth;
 import thuongmaidientu.service.TaiKhoanImpl;
 import thuongmaidientu.service.VaiTroImpl;
 
@@ -35,7 +36,7 @@ public class DangNhapController {
 	TaiKhoanImpl taiKhoanImpl;
 	
 	
-	
+	@Auth(permission = 1, action = Auth.Action.VIEW)
 	@RequestMapping("/dstaikhoan")
 	public String dsTaiKhoan(Model model) {
 		List<TaiKhoan> lstTK = taiKhoanImpl.layDanhSach();
@@ -43,13 +44,14 @@ public class DangNhapController {
 		return "dstaikhoan";
 	}
 	
-	
+	@Auth(permission = 1, action = Auth.Action.VIEW)
 	@RequestMapping("/captaikhoan")
 	public String capTaiKhoan(Model model) {
 		danhSachVaiTro();
 		model.addAttribute("taikhoan", new TaiKhoan());
 		return "captaikhoan";
 	}
+	@Auth(permission = 1, action = Auth.Action.VIEW)
 	@RequestMapping("/captaikhoan/{idtaikhoan}")
 	public String chiTietTaiKhoan(@PathVariable("idtaikhoan") int id ,Model model) {
 		TaiKhoan objTK = taiKhoanImpl.layChiTiet(id);
@@ -57,12 +59,13 @@ public class DangNhapController {
 		model.addAttribute("taikhoan", objTK);
 		return "captaikhoan";
 	}
+	@Auth(permission = 1, action = Auth.Action.VIEW)
 	@RequestMapping("/tk-xoa/{idtaikhoan}")
 	public String xoaTaiKhoan (@PathVariable("idtaikhoan") int id) {
 		taiKhoanImpl.xoa(id);
 		return "redirect: ../dstaikhoan";
 	}
-	
+	@Auth(permission = 1, action = Auth.Action.VIEW)
 	@RequestMapping(value ="/tk-themmoicapnhat", method = RequestMethod.POST)
 	public String themMoiCapNhat(@ModelAttribute("taikhoan") TaiKhoan objTaiKhoan, @RequestParam(name ="fUpload", required = false) MultipartFile fileUp, HttpServletRequest request) {
 		System.out.println("s");

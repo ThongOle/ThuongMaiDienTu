@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 
 import thuongmaidientu.model.HangSanXuat;
+import thuongmaidientu.service.Auth;
 import thuongmaidientu.service.HangSanXuatImpl;
 
 @Controller
@@ -18,6 +19,7 @@ import thuongmaidientu.service.HangSanXuatImpl;
 public class HangSanXuatController {
 	@Autowired
 	HangSanXuatImpl hsxImpl;
+	@Auth(permission = 1, action = Auth.Action.VIEW)
 	@RequestMapping(value = "/hangsanxuat")
 	public String DanhSachHangSanXuat (Model model) {
 		List<HangSanXuat> lsthsx = hsxImpl.layDanhSach();
@@ -25,6 +27,7 @@ public class HangSanXuatController {
 		model.addAttribute("hangsanxuat", new HangSanXuat());
 		return "dshangsx";
 	}
+	@Auth(permission = 1, action = Auth.Action.VIEW)
 	@RequestMapping(value = "/hsxadd")
 	public String themMoiCapNhatDanhSach (@ModelAttribute("hangsanxuat") HangSanXuat objHangSanXuat ) {
 		

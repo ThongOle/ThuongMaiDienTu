@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 
 import thuongmaidientu.model.XuatXu;
+import thuongmaidientu.service.Auth;
 import thuongmaidientu.service.XuatXuImpl;
 
 @Controller
@@ -19,6 +20,7 @@ public class XuatXuController {
 	@Autowired
 	XuatXuImpl xuatXuImpl;
 	
+	@Auth(permission = 1, action = Auth.Action.VIEW)
 	@RequestMapping(value = "/dsxuatxu")
 	public String dsXuatXu (Model model) {
 		List<XuatXu> lstxx = xuatXuImpl.layDanhSach();
@@ -26,6 +28,7 @@ public class XuatXuController {
 		model.addAttribute("xuatxu", new XuatXu());
 		return "dsxuatxu";
 	}
+	@Auth(permission = 1, action = Auth.Action.VIEW)
 	@RequestMapping(value = "/xxadd")
 	public String themMoiCapNhatDanhSach (@ModelAttribute("xuatxu") XuatXu objXuatXu ) {
 		
